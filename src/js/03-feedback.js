@@ -23,7 +23,6 @@ function handleInput() {
 
 function handleSubmit(event) {
   event.preventDefault();
-  console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   localStorage.removeItem(STORAGE_KEY);
   refs.form.reset();
 }
