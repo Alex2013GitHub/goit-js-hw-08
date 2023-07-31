@@ -11,7 +11,7 @@ const refs = {
 handleLocalStorage();
 
 refs.form.addEventListener('submit', handleSubmit);
-refs.input.addEventListener('input', throttle(handleInput, 500));
+refs.form.addEventListener('input', throttle(handleInput, 500));
 
 function handleInput() {
   const formData = {
@@ -23,6 +23,10 @@ function handleInput() {
 
 function handleSubmit(event) {
   event.preventDefault();
+  if (localStorage.getItem(STORAGE_KEY)) {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    console.log(data);
+  }
   localStorage.removeItem(STORAGE_KEY);
   refs.form.reset();
 }
